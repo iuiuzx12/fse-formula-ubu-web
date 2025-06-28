@@ -12,6 +12,7 @@ router.route('/')
   .post(authenticateToken, checkAdmin, challengesController.createChallenge);
 
 singleChallengeRouter.route('/:challengeId')
+    .get(authenticateToken, challengesController.getChallengeById)
     .put(authenticateToken, checkAdmin, challengesController.updateChallenge)
     .delete(authenticateToken, checkAdmin, challengesController.deleteChallenge);
 

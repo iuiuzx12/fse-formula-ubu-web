@@ -1,6 +1,23 @@
 import { RequestHandler } from 'express';
 import * as lessonService from './lessons.service';
 
+
+export const getLessonById: RequestHandler = async (req, res) => {
+  try {
+    const lessonId = parseInt(req.params.id, 10);
+    const lesson = await lessonService.findLessonById(lessonId);
+
+    if (!lesson) {
+      res.status(404).json({ message: 'Lesson not found' });
+      return;
+    }
+
+    res.status(200).json(lesson);
+  } catch (error: any) {
+    res.status(500).json({ message: 'Error retrieving lesson', error: error.message });
+  }
+};
+
 // จัดการการดึงบทเรียนทั้งหมด
 export const getAllLessons: RequestHandler = async (req , res) => {
   try {

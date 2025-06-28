@@ -44,3 +44,9 @@ export const deleteChallenge = async (id: number) => {
   const [result] = await pool.query<ResultSetHeader>(sql, [id]);
   return result;
 };
+
+export const findChallengeById = async (id: number) => {
+    const sql = 'SELECT * FROM challenges WHERE id = ?';
+    const [rows] = await pool.query<RowDataPacket[]>(sql, [id]);
+    return rows[0] || null;
+};

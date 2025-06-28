@@ -8,6 +8,8 @@ const router = Router();
 // GET /api/v1/lessons
 router.get('/', authenticateToken, lessonsController.getAllLessons);
 
+router.get('/:id', authenticateToken, lessonsController.getLessonById);
+
 // POST /api/v1/lessons
 router.post('/', authenticateToken, checkAdmin, lessonsController.createLesson);
 

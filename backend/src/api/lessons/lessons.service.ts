@@ -63,3 +63,9 @@ export const deleteLesson = async (id: number) => {
   const [result] = await pool.query<ResultSetHeader>(sql, [id]);
   return result;
 };
+
+export const findLessonById = async (id: number) => {
+  const sql = 'SELECT id, title, description, content_data FROM lessons WHERE id = ?';
+  const [rows] = await pool.query<ResultSetHeader[]>(sql, [id]);
+  return rows[0] || null; // คืนค่าข้อมูลที่เจอ หรือ null ถ้าไม่เจอ
+};

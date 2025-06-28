@@ -59,3 +59,17 @@ export const deleteChallenge: RequestHandler = async (req, res) => {
         res.status(500).json({ message: 'Error deleting challenge', error: error.message });
     }
 };
+
+export const getChallengeById: RequestHandler = async (req, res) => {
+    try {
+        const challengeId = parseInt(req.params.challengeId, 10);
+        const challenge = await challengeService.findChallengeById(challengeId);
+        if (!challenge) {
+          res.status(404).json({ message: 'Challenge not found' });
+          return;
+        }
+        res.status(200).json(challenge);
+    } catch (error: any) {
+        res.status(500).json({ message: 'Error retrieving challenge', error: error.message });
+    }
+};
