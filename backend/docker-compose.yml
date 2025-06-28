@@ -7,10 +7,10 @@ services:
     container_name: mechubuev-mysql-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: 'ev_tanaboon_123' # <-- เปลี่ยนเป็นรหัสผ่านที่ปลอดภัย
-      MYSQL_DATABASE: 'mechubuev_fse_hub'
-      MYSQL_USER: 'fse_user'
-      MYSQL_PASSWORD: 'TT_ubu_786_zn' # <-- เปลี่ยนเป็นรหัสผ่านที่ปลอดภัย
+    MYSQL_ROOT_PASSWORD: '${DOCKER_MYSQL_ROOT_PASSWORD}'
+    MYSQL_DATABASE: '${DOCKER_MYSQL_DATABASE}'
+    MYSQL_USER: '${DOCKER_MYSQL_USER}'
+    MYSQL_PASSWORD: '${DOCKER_MYSQL_PASSWORD}'
     ports:
       # เปิด Port 3306 ของ Local ให้เชื่อมต่อกับ Port 3306 ใน Container
       - "3306:3306"
