@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020", "DOM"],
+    "outDir": "./dist",
+    "rootDir": "./src",
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": "./src", /* <-- จุดสำคัญ: บอกว่า src คือโฟลเดอร์พื้นฐาน */
+    "paths": {
+      "@/*": ["*"] /* (ทางเลือก) สำหรับสร้าง Alias Path ในอนาคต */
+    },
+    "esModuleInterop": true,
+    "typeRoots": [      // <-- เพิ่มส่วนนี้เข้าไป
+      "./src/types",
+      "./node_modules/@types"
+    ],
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*"], /* <-- จุดสำคัญ: บอกให้คอมไพล์ทุกไฟล์ใน src */
+  "exclude": ["node_modules"]
+}

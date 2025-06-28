@@ -1,0 +1,22 @@
+
+
+services:
+  # บริการสำหรับฐานข้อมูล MySQL
+  db:
+    image: mysql:8.0 # แนะนำให้ระบุเวอร์ชัน
+    container_name: mechubuev-mysql-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'ev_tanaboon_123' # <-- เปลี่ยนเป็นรหัสผ่านที่ปลอดภัย
+      MYSQL_DATABASE: 'mechubuev_fse_hub'
+      MYSQL_USER: 'fse_user'
+      MYSQL_PASSWORD: 'TT_ubu_786_zn' # <-- เปลี่ยนเป็นรหัสผ่านที่ปลอดภัย
+    ports:
+      # เปิด Port 3306 ของ Local ให้เชื่อมต่อกับ Port 3306 ใน Container
+      - "3306:3306"
+    volumes:
+      # บันทึกข้อมูลของ Database ลงบนเครื่องของคุณเพื่อไม่ให้ข้อมูลหาย
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

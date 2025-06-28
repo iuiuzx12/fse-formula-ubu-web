@@ -1,0 +1,66 @@
+# ############################################################################
+# ไฟล์นี้ควรถูกวางไว้ที่ Root ของโปรเจกต์ (ระดับเดียวกับโฟลเดอร์ backend และ frontend)
+# ############################################################################
+
+# =================================================================
+# ทั่วไป (General)
+# =================================================================
+
+# ไฟล์ Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ไฟล์ที่ถูกสร้างโดยระบบปฏิบัติการ (OS)
+.DS_Store
+Thumbs.db
+
+# ไฟล์ของ IDEs และ Editors
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# =================================================================
+# Backend (Node.js / TypeScript)
+# =================================================================
+
+# โฟลเดอร์ Dependencies
+backend/node_modules/
+
+# โฟลเดอร์ที่ได้จากการ Compile TypeScript
+backend/dist/
+
+# ไฟล์ Environment Variables (สำคัญมาก! ห้ามอัปโหลด)
+backend/.env
+
+# =================================================================
+# Frontend (React / Vite)
+# =================================================================
+
+# โฟลเดอร์ Dependencies
+frontend/node_modules/
+
+# โฟลเดอร์ที่ได้จากการ Build
+frontend/dist/
+
+# Cache ของ Vite
+frontend/.vite/
+
+# ไฟล์ Environment Variables
+frontend/.env
+frontend/.env.*
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# ไฟล์ Coverage reports
+coverage/
